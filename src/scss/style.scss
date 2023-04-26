@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 
 .body {
   padding: 5vw;
 
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   text-align: center;
   font-size: 20px;
 
@@ -16,6 +16,7 @@
   padding: 5px;
   width: 100%;
   height: 100px;
+  margin-bottom: 20px;
 
   color: #000000;
   border: #050505 solid 2px;
@@ -23,20 +24,31 @@
 }
 
 .keyboard {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1vw;
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  column-gap: 1vw;
 }
 
 .key {
   position: relative;
 
-  padding-top: 10px;
-  height: 36px;
+  padding-top: 1vw;
+  height: 3.5vw;
+  width: 4.5vw;
+
+  font-size: 1.5vw;
 
   border-color: #303030 #101010 #050505 #202020;
   border-style: solid;
-  border-width: 1px 2px 4px 2px;
-  border-radius: 5px;
+  border-width: 0.1vw 0.2vw 0.4vw 0.2vw;
+  border-radius: 0.5vw;
   background-color: #303030;
 
   cursor: pointer;
