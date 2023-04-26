@@ -1,13 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
 
 .body {
-  padding: 5vw;
+  padding: 20px calc(5.000vw + 0.00px);
+  max-width: 1000px;
+  margin: 0 auto;
 
   font-family: "Source Code Pro", monospace;
   text-align: center;
   font-size: 20px;
 
   color: white;
+
+  @media (min-width: 1000px) {
+    padding: 20px 50px;
+  }
+
+  .language_ru {
+    display: none;
+  }
+}
+
+.body_ru {
+  .language_en {
+    display: none;
+  }
+
+  .language_ru {
+    display: block;
+  }
+}
+
+.body_capital {
+  & .key p {
+    text-transform: capitalize;
+  }
 }
 
 .screen {
@@ -27,6 +53,12 @@
   display: flex;
   flex-wrap: wrap;
   row-gap: 1vw;
+  max-width: 883px;
+  margin: 0 auto;
+
+  @media (min-width: 1000px) {
+    row-gap: 10px;
+  }
 }
 
 .keyboard-row {
@@ -34,13 +66,20 @@
   justify-content: space-between;
   width: 100%;
   column-gap: 1vw;
+
+  
+  @media (min-width: 1000px) {
+    column-gap: 10px;
+  }
 }
 
 .key {
   position: relative;
 
-  padding-top: 1vw;
-  height: 3.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4vw;
   width: 4.5vw;
 
   font-size: 1.5vw;
@@ -55,6 +94,16 @@
   user-select: none;
 
   transition: transform 0.2s, border-bottom-width 0.2s, box-shadow 0.2s;
+
+  @media (min-width: 1000px) {
+    height: 40px;
+    width: 45px;
+  
+    font-size: 15px;
+
+    border-width: 1px 2px 4px 2px;
+    border-radius: 5px;
+  }
 
   &.active,
   &:active {
@@ -79,4 +128,13 @@
   &:hover::before {
     opacity: 1;
   }
+}
+
+.additional-symbol {
+  position: absolute;
+  top: 0.1em;
+  left: 0.2em;
+  font-size: 0.9em;
+  color: #ffffff;
+  opacity: 0.7;
 }
