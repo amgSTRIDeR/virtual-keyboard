@@ -5,5 +5,6 @@
   "trailingComma": "all",
   "jsxBracketSameLine": false,
   "arrowParens": "always",
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "operator-linebreak": "after"
 }

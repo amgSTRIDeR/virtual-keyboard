@@ -31,17 +31,20 @@
 }
 
 .body_capslock,
-.body_shift {
+.body_shiftleft,
+.body_shiftright {
   & .key p {
     text-transform: capitalize;
   }
 }
 
-.body_shift .key span {
+.body_shiftleft .key span,
+.body_shiftright .key span {
   animation: flashing 2s infinite;
 }
 
-.body_capslock.body_shift .key p {
+.body_capslock.body_shiftleft .key p,
+.body_capslock.body_shiftleftright .key p {
   text-transform: unset;
 }
 
@@ -124,6 +127,7 @@
     transform: translateY(2px) scale(0.95);
     border-bottom-width: 2px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+    color: #b3d9ff;
   }
 
   &::before {
