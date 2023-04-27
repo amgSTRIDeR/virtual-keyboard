@@ -155,6 +155,7 @@ function moveCursorRight() {
 
 function moveCursorToStart() {
   screenElement.setSelectionRange(0, 0);
+  // screenElement.scrollTop = 0;
 }
 
 function moveCursorToEnd() {
@@ -174,12 +175,6 @@ function toNewLine() {
   screenElement.setSelectionRange(startPos + 1, startPos + 1);
 }
 
-function scroolScreen() {
-  if (screenElement.selectionStart === screenElement.selectionEnd) {
-    screenElement.scrollTop = screenElement.scrollHeight;
-  }
-}
-
 function addTabulation() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
@@ -188,6 +183,12 @@ function addTabulation() {
     startPos,
   )}\t${screenElement.value.substring(endPos, screenElement.value.length)}`;
   screenElement.setSelectionRange(startPos + 1, startPos + 1);
+}
+
+function scroolScreen() {
+  if (screenElement.selectionStart === screenElement.selectionEnd) {
+    screenElement.scrollTop = screenElement.scrollHeight;
+  }
 }
 
 const keysArray = [
@@ -658,7 +659,7 @@ document.addEventListener('keydown', (event) => {
           key.classList.add('active');
           key.dispatchEvent(new MouseEvent('mousedown'));
       }
-      scroolScreen();
+      // scroolScreen();
     }
   });
 });
@@ -681,8 +682,10 @@ document.addEventListener('keyup', (event) => {
         case 'capslock':
           break;
         default:
+          event.preventDefault();
           key.classList.remove('active');
       }
+      scroolScreen();
     }
   });
 });
