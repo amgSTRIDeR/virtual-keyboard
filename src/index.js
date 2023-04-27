@@ -21,7 +21,7 @@ class Key {
 
     keyElement.style.flexGrow = this.key.flexGrow;
     if (this.key.callback) {
-      keyElement.addEventListener('click', () => {
+      keyElement.addEventListener('mousedown', () => {
         this.key.callback(keyElement, `body_${this.key.code.toLowerCase()}`);
       });
     }
@@ -54,17 +54,17 @@ function changeLanguage() {
 
 function isNeedToChangeLanguage(element) {
   if (
-    element.dataset.code === 'AltLeft' &&
-    bodyElement.classList.contains('body_shiftleft') &&
-    !bodyElement.classList.contains('body_altleft')
+    element.dataset.code === 'AltLeft'
+    && bodyElement.classList.contains('body_shiftleft')
+    && !bodyElement.classList.contains('body_altleft')
   ) {
     return true;
   }
 
   if (
-    element.dataset.code === 'ShiftLeft' &&
-    bodyElement.classList.contains('body_altleft') &&
-    !bodyElement.classList.contains('body_shiftleft')
+    element.dataset.code === 'ShiftLeft'
+    && bodyElement.classList.contains('body_altleft')
+    && !bodyElement.classList.contains('body_shiftleft')
   ) {
     return true;
   }
@@ -101,7 +101,82 @@ function handleButtonUp(element, bodyClass) {
 }
 
 function typeSymbol() {
-  console.log(this);
+  let symbol = '';
+  if (
+    (bodyElement.classList.contains('body_shiftleft')
+      && bodyElement.classList.contains('body_capslock'))
+    || (!bodyElement.classList.contains('body_shiftleft')
+      && !bodyElement.classList.contains('body_capslock'))
+  ) {
+    if (bodyElement.classList.contains('body_ru')) {
+      symbol = this.ruSymbol;
+    } else {
+      symbol = this.enSymbol;
+    }
+  } else if (bodyElement.classList.contains('body_ru')) {
+    if (this.ruShiftSymbol) {
+      symbol = this.ruShiftSymbol;
+    } else {
+      symbol = this.ruSymbol.toUpperCase();
+    }
+  } else if (this.enShiftSymbol) {
+    symbol = this.enShiftSymbol;
+  } else {
+    symbol = this.enSymbol.toUpperCase();
+  }
+
+  const startPos = screenElement.selectionStart;
+  const endPos = screenElement.selectionEnd;
+  screenElement.value = screenElement.value.substring(0, startPos)
+    + symbol
+    + screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.setSelectionRange(startPos + 1, startPos + 1);
+}
+
+function deletePrevious() {
+  const startPos = screenElement.selectionStart;
+  const endPos = screenElement.selectionEnd;
+  screenElement.value = screenElement.value.substring(0, startPos - 1)
+    + screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.setSelectionRange(startPos - 1, startPos - 1);
+}
+
+function deleteNext() {
+  const startPos = screenElement.selectionStart;
+  const endPos = screenElement.selectionEnd;
+  screenElement.value = screenElement.value.substring(0, startPos)
+    + screenElement.value.substring(endPos + 1, screenElement.value.length);
+  screenElement.setSelectionRange(startPos, startPos);
+}
+
+function moveCursorLeft() {
+  const startPos = screenElement.selectionStart;
+  screenElement.setSelectionRange(startPos - 1, startPos - 1);
+}
+
+function moveCursorRight() {
+  const startPos = screenElement.selectionStart;
+  screenElement.setSelectionRange(startPos + 1, startPos + 1);
+}
+
+function moveCursorToStart() {
+  screenElement.setSelectionRange(0, 0);
+}
+
+function moveCursorToEnd() {
+  screenElement.setSelectionRange(
+    screenElement.value.length,
+    screenElement.value.length,
+  );
+}
+
+function toNewLine() {
+  const startPos = screenElement.selectionStart;
+  const endPos = screenElement.selectionEnd;
+  screenElement.value = `${screenElement.value.substring(0, startPos)
+  }\n${
+    screenElement.value.substring(endPos, screenElement.value.length)}`;
+  screenElement.setSelectionRange(startPos + 1, startPos + 1);
 }
 
 const keysArray = [
@@ -118,6 +193,7 @@ const keysArray = [
     ruSymbol: '1',
     enShiftSymbol: '!',
     ruShiftSymbol: '!',
+    callback: typeSymbol,
   },
   {
     code: 'Digit2',
@@ -125,6 +201,7 @@ const keysArray = [
     ruSymbol: '2',
     enShiftSymbol: '@',
     ruShiftSymbol: '"',
+    callback: typeSymbol,
   },
   {
     code: 'Digit3',
@@ -132,6 +209,7 @@ const keysArray = [
     ruSymbol: '3',
     enShiftSymbol: '#',
     ruShiftSymbol: '№',
+    callback: typeSymbol,
   },
   {
     code: 'Digit4',
@@ -139,6 +217,7 @@ const keysArray = [
     ruSymbol: '4',
     enShiftSymbol: '$',
     ruShiftSymbol: ';',
+    callback: typeSymbol,
   },
   {
     code: 'Digit5',
@@ -146,6 +225,7 @@ const keysArray = [
     ruSymbol: '5',
     enShiftSymbol: '%',
     ruShiftSymbol: '%',
+    callback: typeSymbol,
   },
   {
     code: 'Digit6',
@@ -153,6 +233,7 @@ const keysArray = [
     ruSymbol: '6',
     enShiftSymbol: '^',
     ruShiftSymbol: ':',
+    callback: typeSymbol,
   },
   {
     code: 'Digit7',
@@ -160,6 +241,7 @@ const keysArray = [
     ruSymbol: '7',
     enShiftSymbol: '&',
     ruShiftSymbol: '?',
+    callback: typeSymbol,
   },
   {
     code: 'Digit8',
@@ -167,6 +249,7 @@ const keysArray = [
     ruSymbol: '8',
     enShiftSymbol: '*',
     ruShiftSymbol: '*',
+    callback: typeSymbol,
   },
   {
     code: 'Digit9',
@@ -174,6 +257,7 @@ const keysArray = [
     ruSymbol: '9',
     enShiftSymbol: '(',
     ruShiftSymbol: '(',
+    callback: typeSymbol,
   },
   {
     code: 'Digit0',
@@ -181,6 +265,7 @@ const keysArray = [
     ruSymbol: '0',
     enShiftSymbol: ')',
     ruShiftSymbol: ')',
+    callback: typeSymbol,
   },
   {
     code: 'Minus',
@@ -188,6 +273,7 @@ const keysArray = [
     ruSymbol: '-',
     enShiftSymbol: '_',
     ruShiftSymbol: '_',
+    callback: typeSymbol,
   },
   {
     code: 'Equal',
@@ -195,12 +281,14 @@ const keysArray = [
     ruSymbol: '=',
     enShiftSymbol: '+',
     ruShiftSymbol: '=',
+    callback: typeSymbol,
   },
   {
     code: 'Backspace',
     enSymbol: 'Backspace',
     ruSymbol: 'Backspace',
     flexGrow: '1',
+    callback: deletePrevious,
   },
   {
     code: 'Tab',
@@ -212,63 +300,75 @@ const keysArray = [
     code: 'KeyQ',
     enSymbol: 'q',
     ruSymbol: 'й',
+    callback: typeSymbol,
   },
   {
     code: 'KeyW',
     enSymbol: 'w',
     ruSymbol: 'ц',
+    callback: typeSymbol,
   },
   {
     code: 'KeyE',
     enSymbol: 'e',
     ruSymbol: 'у',
+    callback: typeSymbol,
   },
   {
     code: 'KeyR',
     enSymbol: 'r',
     ruSymbol: 'к',
+    callback: typeSymbol,
   },
   {
     code: 'KeyT',
     enSymbol: 't',
     ruSymbol: 'е',
+    callback: typeSymbol,
   },
   {
     code: 'KeyY',
     enSymbol: 'y',
     ruSymbol: 'н',
+    callback: typeSymbol,
   },
   {
     code: 'KeyU',
     enSymbol: 'u',
     ruSymbol: 'г',
+    callback: typeSymbol,
   },
   {
     code: 'KeyI',
     enSymbol: 'i',
     ruSymbol: 'ш',
+    callback: typeSymbol,
   },
   {
     code: 'KeyO',
     enSymbol: 'o',
     ruSymbol: 'щ',
+    callback: typeSymbol,
   },
   {
     code: 'KeyP',
     enSymbol: 'p',
     ruSymbol: 'з',
+    callback: typeSymbol,
   },
   {
     code: 'BracketLeft',
     enSymbol: '[',
     ruSymbol: 'х',
     enShiftSymbol: '{',
+    callback: typeSymbol,
   },
   {
     code: 'BracketRight',
     enSymbol: ']',
     ruSymbol: 'ъ',
     enShiftSymbol: '}',
+    callback: typeSymbol,
   },
   {
     code: 'Backslash',
@@ -276,11 +376,13 @@ const keysArray = [
     ruSymbol: '\\',
     enShiftSymbol: '|',
     ruShiftSymbol: '/',
+    callback: typeSymbol,
   },
   {
     code: 'Delete',
     enSymbol: 'Del',
     ruSymbol: 'Del',
+    callback: deleteNext,
   },
   {
     code: 'CapsLock',
@@ -293,64 +395,76 @@ const keysArray = [
     code: 'KeyA',
     enSymbol: 'a',
     ruSymbol: 'ф',
+    callback: typeSymbol,
   },
   {
     code: 'KeyS',
     enSymbol: 's',
     ruSymbol: 'ы',
+    callback: typeSymbol,
   },
   {
     code: 'KeyD',
     enSymbol: 'd',
     ruSymbol: 'в',
+    callback: typeSymbol,
   },
   {
     code: 'KeyF',
     enSymbol: 'f',
     ruSymbol: 'а',
+    callback: typeSymbol,
   },
   {
     code: 'KeyG',
     enSymbol: 'g',
     ruSymbol: 'п',
+    callback: typeSymbol,
   },
   {
     code: 'KeyH',
     enSymbol: 'h',
     ruSymbol: 'р',
+    callback: typeSymbol,
   },
   {
     code: 'KeyJ',
     enSymbol: 'j',
     ruSymbol: 'о',
+    callback: typeSymbol,
   },
   {
     code: 'KeyK',
     enSymbol: 'k',
     ruSymbol: 'л',
+    callback: typeSymbol,
   },
   {
     code: 'KeyL',
     enSymbol: 'l',
     ruSymbol: 'д',
+    callback: typeSymbol,
   },
   {
     code: 'Semicolon',
     enSymbol: ';',
     ruSymbol: 'ж',
     enShiftSymbol: ':',
+    callback: typeSymbol,
   },
   {
     code: 'Quote',
     enSymbol: "'",
     ruSymbol: 'э',
     enShiftSymbol: '"',
+    callback: typeSymbol,
   },
   {
     code: 'Enter',
     enSymbol: 'Enter',
     ruSymbol: 'Enter',
     flexGrow: '1',
+    callback: toNewLine,
   },
   {
     code: 'ShiftLeft',
@@ -363,48 +477,57 @@ const keysArray = [
     code: 'KeyZ',
     enSymbol: 'z',
     ruSymbol: 'я',
+    callback: typeSymbol,
   },
   {
     code: 'KeyX',
     enSymbol: 'x',
     ruSymbol: 'ч',
+    callback: typeSymbol,
   },
   {
     code: 'KeyC',
     enSymbol: 'c',
     ruSymbol: 'с',
+    callback: typeSymbol,
   },
   {
     code: 'KeyV',
     enSymbol: 'v',
     ruSymbol: 'м',
+    callback: typeSymbol,
   },
   {
     code: 'KeyB',
     enSymbol: 'b',
     ruSymbol: 'и',
+    callback: typeSymbol,
   },
   {
     code: 'KeyN',
     enSymbol: 'n',
     ruSymbol: 'т',
+    callback: typeSymbol,
   },
   {
     code: 'KeyM',
     enSymbol: 'm',
     ruSymbol: 'ь',
+    callback: typeSymbol,
   },
   {
     code: 'Comma',
     enSymbol: ',',
     ruSymbol: 'б',
     enShiftSymbol: '<',
+    callback: typeSymbol,
   },
   {
     code: 'Period',
     enSymbol: '.',
     ruSymbol: 'ю',
     enShiftSymbol: '>',
+    callback: typeSymbol,
   },
   {
     code: 'Slash',
@@ -412,11 +535,13 @@ const keysArray = [
     ruSymbol: '.',
     enShiftSymbol: '?',
     ruShiftSymbol: ',',
+    callback: typeSymbol,
   },
   {
     code: 'ArrowUp',
     enSymbol: '↑',
     ruSymbol: '↑',
+    callback: moveCursorToStart,
   },
   {
     code: 'ShiftRight',
@@ -447,6 +572,7 @@ const keysArray = [
     enSymbol: ' ',
     ruSymbol: ' ',
     flexGrow: '1',
+    callback: typeSymbol,
   },
   {
     code: 'AltRight',
@@ -464,16 +590,19 @@ const keysArray = [
     code: 'ArrowLeft',
     enSymbol: '←',
     ruSymbol: '←',
+    callback: moveCursorLeft,
   },
   {
     code: 'ArrowDown',
     enSymbol: '↓',
     ruSymbol: '↓',
+    callback: moveCursorToEnd,
   },
   {
     code: 'ArrowRight',
     enSymbol: '→',
     ruSymbol: '→',
+    callback: moveCursorRight,
   },
 ];
 
@@ -513,8 +642,9 @@ document.addEventListener('keydown', (event) => {
           bodyElement.classList.toggle(bodyClass);
           break;
         default:
+          event.preventDefault();
           key.classList.add('active');
-          key.dispatchEvent(new MouseEvent('click'));
+          key.dispatchEvent(new MouseEvent('mousedown'));
       }
     }
   });
@@ -543,3 +673,11 @@ document.addEventListener('keyup', (event) => {
     }
   });
 });
+
+screenElement.addEventListener('blur', () => {
+  screenElement.focus();
+});
+
+window.onload = () => {
+  screenElement.focus();
+};
