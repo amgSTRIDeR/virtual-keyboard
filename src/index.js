@@ -1,30 +1,14 @@
 import './scss/style.scss';
 
-class Key {
-  constructor(key, callback, widthCoef = 1) {
-    this.key = key;
-    this.callback = callback;
-    this.widthCoef = widthCoef;
-  }
-
-  render() {
-    const keyElement = document.createElement('div');
-    keyElement.classList.add('key');
-    keyElement.dataset.code = this.key.code;
-    keyElement.innerHTML = `<p class="language_en">${this.key.enSymbol}<span class="additional-symbol">${this.key.enShiftSymbol || ''}</span></p><p class="language_ru">${this.key.ruSymbol}<span class="additional-symbol">${this.key.ruShiftSymbol || ''}</span></p>`;
-
-    keyElement.style.width = this.key.width;
-    keyElement.style.flexGrow = this.key.flexGrow;
-    return keyElement;
-  }
-}
-
 const keysArray = [
   {
     code: 'Backquote',
     enSymbol: '`',
     ruSymbol: 'ё',
     enShiftSymbol: '~',
+    callback: (key) => {
+      console.log(key);
+    },
   },
   {
     code: 'Digit1',
@@ -383,13 +367,92 @@ const keysArray = [
   },
 ];
 
+class Key {
+  constructor(key) {
+    this.key = key;
+  }
+
+  render() {
+    const keyElement = document.createElement('div');
+    keyElement.classList.add('key');
+    keyElement.dataset.code = this.key.code;
+    keyElement.innerHTML = `<p class="language_en">${
+      this.key.enSymbol
+    }<span class="additional-symbol">${
+      this.key.enShiftSymbol || ''
+    }</span></p><p class="language_ru">${
+      this.key.ruSymbol
+    }<span class="additional-symbol">${
+      this.key.ruShiftSymbol || ''
+    }</span></p>`;
+
+    keyElement.style.width = this.key.width;
+    keyElement.style.flexGrow = this.key.flexGrow;
+
+    keyElement.addEventListener('click', () => {
+      const event = new KeyboardEvent('keydown', {
+        key: this.key.code,
+        isTrusted: true,
+      });
+      document.dispatchEvent(event);
+    });
+
+    return keyElement;
+  }
+}
+
+const bodyElement = document.querySelector('.body');
 const screenElement = document.querySelector('.screen');
-const keyboardElement = document.querySelector('.keyboard');
 const firstRow = document.querySelector('.first-row');
 const secondRow = document.querySelector('.second-row');
 const thirdRow = document.querySelector('.third-row');
 const fourthRow = document.querySelector('.fourth-row');
 const fifthRow = document.querySelector('.fifth-row');
+
+let currentLanguage = localStorage.getItem('language') || 'en';
+let currentShift = false;
+let currentControl = false;
+let currentAlt = false;
+let currentCapslock = false;
+
+function changeLanguage() {
+  if (currentLanguage === 'en') {
+    currentLanguage = 'ru';
+    bodyElement.classList.add('body_ru');
+    localStorage.setItem('language', 'ru');
+  } else {
+    currentLanguage = 'en';
+    bodyElement.classList.remove('body_ru');
+    localStorage.setItem('language', 'en');
+  }
+}
+
+function shiftDown() {
+  currentShift = true;
+  bodyElement.classList.add('body_shift');
+}
+
+function shiftUp() {
+  currentShift = false;
+  bodyElement.classList.remove('body_shift');
+}
+
+function altDown() {
+  currentAlt = true;
+}
+
+function altUp() {
+  currentAlt = false;
+}
+
+function changeCapsLock() {
+  currentCapslock = !currentCapslock;
+  if (bodyElement.classList.contains('body_capslock')) {
+    bodyElement.classList.remove('body_capslock');
+  } else {
+    bodyElement.classList.add('body_capslock');
+  }
+}
 
 keysArray.forEach((key, index) => {
   if (index < 14) {
@@ -405,30 +468,45 @@ keysArray.forEach((key, index) => {
   }
 });
 
-// keyboardElement.addEventListener('click', (event) => {
-//   const key = event.target.closest('.key');
-//   if (key) {
-//     screenElement.insertAdjacentHTML('beforeend', key.dataset.key);
-//   }
-// });
-
 const keysElementsArray = Array.from(document.querySelectorAll('.key'));
-
 document.addEventListener('keydown', (event) => {
+  if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
+    currentControl = true;
+  }
+  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+    shiftDown();
+  }
+  if (event.code === 'AltLeft' || event.code === 'AltRight') {
+    altDown();
+  }
+
   keysElementsArray.forEach((key) => {
     if (event.code === key.dataset.code) {
+      screenElement.focus();
       key.classList.add('active');
-
-      key.dispatchEvent(
-        new MouseEvent('click', {
-          bubbles: true,
-        }),
-      );
     }
   });
 });
 
 document.addEventListener('keyup', (event) => {
+  if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
+    currentControl = false;
+  }
+  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+    if (currentAlt) {
+      changeLanguage();
+    }
+    shiftUp();
+  }
+  if (event.code === 'AltLeft' || event.code === 'AltRight') {
+    if (currentShift) {
+      changeLanguage();
+    }
+    altUp();
+  }
+  if (event.code === 'CapsLock') {
+    changeCapsLock();
+  }
   keysElementsArray.forEach((key) => {
     if (event.code === key.dataset.code) {
       key.classList.remove('active');
