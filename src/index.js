@@ -52,19 +52,10 @@ function changeLanguage() {
   }
 }
 
-function isNeedToChangeLanguage(element) {
+function isNeedToChangeLanguage() {
   if (
-    element.dataset.code === 'AltLeft' &&
-    bodyElement.classList.contains('body_shiftleft') &&
-    !bodyElement.classList.contains('body_altleft')
-  ) {
-    return true;
-  }
-
-  if (
-    element.dataset.code === 'ShiftLeft' &&
-    bodyElement.classList.contains('body_altleft') &&
-    !bodyElement.classList.contains('body_shiftleft')
+    bodyElement.classList.contains('body_shiftleft')
+     && bodyElement.classList.contains('body_altleft')
   ) {
     return true;
   }
@@ -189,6 +180,16 @@ function scroolScreen() {
   }
 }
 
+function addTabulation() {
+  const startPos = screenElement.selectionStart;
+  const endPos = screenElement.selectionEnd;
+  screenElement.value = `${screenElement.value.substring(
+    0,
+    startPos,
+  )}\t${screenElement.value.substring(endPos, screenElement.value.length)}`;
+  screenElement.setSelectionRange(startPos + 1, startPos + 1);
+}
+
 const keysArray = [
   {
     code: 'Backquote',
@@ -305,6 +306,7 @@ const keysArray = [
     enSymbol: 'Tab',
     ruSymbol: 'Tab',
     flexGrow: '1',
+    callback: addTabulation,
   },
   {
     code: 'KeyQ',
