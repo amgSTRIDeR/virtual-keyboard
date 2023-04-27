@@ -1,14 +1,116 @@
 import './scss/style.scss';
 
+class Key {
+  constructor(key) {
+    this.key = key;
+  }
+
+  render() {
+    const keyElement = document.createElement('div');
+    keyElement.classList.add('key');
+    keyElement.dataset.code = this.key.code;
+    keyElement.innerHTML = `<p class="language_en">${
+      this.key.enSymbol
+    }<span class="additional-symbol">${
+      this.key.enShiftSymbol || ''
+    }</span></p><p class="language_ru">${
+      this.key.ruSymbol
+    }<span class="additional-symbol">${
+      this.key.ruShiftSymbol || ''
+    }</span></p>`;
+
+    keyElement.style.flexGrow = this.key.flexGrow;
+    if (this.key.callback) {
+      keyElement.addEventListener('click', () => {
+        this.key.callback(keyElement, `body_${this.key.code.toLowerCase()}`);
+      });
+    }
+
+    return keyElement;
+  }
+}
+
+const bodyElement = document.querySelector('.body');
+const screenElement = document.querySelector('.screen');
+const firstRow = document.querySelector('.first-row');
+const secondRow = document.querySelector('.second-row');
+const thirdRow = document.querySelector('.third-row');
+const fourthRow = document.querySelector('.fourth-row');
+const fifthRow = document.querySelector('.fifth-row');
+
+let currentLanguage = localStorage.getItem('language') || 'en';
+
+function changeLanguage() {
+  if (currentLanguage === 'en') {
+    currentLanguage = 'ru';
+    bodyElement.classList.add('body_ru');
+    localStorage.setItem('language', 'ru');
+  } else {
+    currentLanguage = 'en';
+    bodyElement.classList.remove('body_ru');
+    localStorage.setItem('language', 'en');
+  }
+}
+
+function isNeedToChangeLanguage(element) {
+  if (
+    element.dataset.code === 'AltLeft' &&
+    bodyElement.classList.contains('body_shiftleft') &&
+    !bodyElement.classList.contains('body_altleft')
+  ) {
+    return true;
+  }
+
+  if (
+    element.dataset.code === 'ShiftLeft' &&
+    bodyElement.classList.contains('body_altleft') &&
+    !bodyElement.classList.contains('body_shiftleft')
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function toggleElement(element, bodyClass) {
+  bodyElement.classList.toggle(bodyClass);
+  element.classList.toggle('active');
+
+  if (isNeedToChangeLanguage(element)) {
+    changeLanguage();
+  }
+}
+
+function handleButtonDown(element, bodyClass) {
+  if (!bodyElement.classList.contains(bodyClass)) {
+    bodyElement.classList.add(bodyClass);
+    element.classList.add('active');
+  }
+
+  if (isNeedToChangeLanguage(element)) {
+    changeLanguage();
+  }
+}
+
+function handleButtonUp(element, bodyClass) {
+  bodyElement.classList.remove(bodyClass);
+  element.classList.remove('active');
+
+  if (isNeedToChangeLanguage(element)) {
+    changeLanguage();
+  }
+}
+
+function typeSymbol() {
+  console.log(this);
+}
+
 const keysArray = [
   {
     code: 'Backquote',
     enSymbol: '`',
     ruSymbol: 'ё',
     enShiftSymbol: '~',
-    callback: (key) => {
-      console.log(key);
-    },
+    callback: typeSymbol,
   },
   {
     code: 'Digit1',
@@ -185,6 +287,7 @@ const keysArray = [
     enSymbol: 'CapsLock',
     ruSymbol: 'CapsLock',
     flexGrow: '1',
+    callback: toggleElement,
   },
   {
     code: 'KeyA',
@@ -254,6 +357,7 @@ const keysArray = [
     enSymbol: 'Shift',
     ruSymbol: 'Shift',
     flexGrow: '1',
+    callback: toggleElement,
   },
   {
     code: 'KeyZ',
@@ -318,21 +422,25 @@ const keysArray = [
     code: 'ShiftRight',
     enSymbol: 'Shift',
     ruSymbol: 'Shift',
+    callback: toggleElement,
   },
   {
     code: 'ControlLeft',
     enSymbol: 'Ctrl',
     ruSymbol: 'Ctrl',
+    callback: toggleElement,
   },
   {
     code: 'MetaLeft',
     enSymbol: 'Win',
     ruSymbol: 'Win',
+    callback: toggleElement,
   },
   {
     code: 'AltLeft',
     enSymbol: 'Alt',
     ruSymbol: 'Alt',
+    callback: toggleElement,
   },
   {
     code: 'Space',
@@ -344,11 +452,13 @@ const keysArray = [
     code: 'AltRight',
     enSymbol: 'Alt',
     ruSymbol: 'Alt',
+    callback: toggleElement,
   },
   {
     code: 'ControlRight',
     enSymbol: 'Ctrl',
     ruSymbol: 'Ctrl',
+    callback: toggleElement,
   },
   {
     code: 'ArrowLeft',
@@ -367,93 +477,6 @@ const keysArray = [
   },
 ];
 
-class Key {
-  constructor(key) {
-    this.key = key;
-  }
-
-  render() {
-    const keyElement = document.createElement('div');
-    keyElement.classList.add('key');
-    keyElement.dataset.code = this.key.code;
-    keyElement.innerHTML = `<p class="language_en">${
-      this.key.enSymbol
-    }<span class="additional-symbol">${
-      this.key.enShiftSymbol || ''
-    }</span></p><p class="language_ru">${
-      this.key.ruSymbol
-    }<span class="additional-symbol">${
-      this.key.ruShiftSymbol || ''
-    }</span></p>`;
-
-    keyElement.style.width = this.key.width;
-    keyElement.style.flexGrow = this.key.flexGrow;
-
-    keyElement.addEventListener('click', () => {
-      const event = new KeyboardEvent('keydown', {
-        key: this.key.code,
-        isTrusted: true,
-      });
-      document.dispatchEvent(event);
-    });
-
-    return keyElement;
-  }
-}
-
-const bodyElement = document.querySelector('.body');
-const screenElement = document.querySelector('.screen');
-const firstRow = document.querySelector('.first-row');
-const secondRow = document.querySelector('.second-row');
-const thirdRow = document.querySelector('.third-row');
-const fourthRow = document.querySelector('.fourth-row');
-const fifthRow = document.querySelector('.fifth-row');
-
-let currentLanguage = localStorage.getItem('language') || 'en';
-let currentShift = false;
-let currentControl = false;
-let currentAlt = false;
-let currentCapslock = false;
-
-function changeLanguage() {
-  if (currentLanguage === 'en') {
-    currentLanguage = 'ru';
-    bodyElement.classList.add('body_ru');
-    localStorage.setItem('language', 'ru');
-  } else {
-    currentLanguage = 'en';
-    bodyElement.classList.remove('body_ru');
-    localStorage.setItem('language', 'en');
-  }
-}
-
-function shiftDown() {
-  currentShift = true;
-  bodyElement.classList.add('body_shift');
-}
-
-function shiftUp() {
-  currentShift = false;
-  bodyElement.classList.remove('body_shift');
-}
-
-function altDown() {
-  currentAlt = true;
-}
-
-function altUp() {
-  currentAlt = false;
-}
-
-function changeCapsLock() {
-  currentCapslock = !currentCapslock;
-  if (bodyElement.classList.contains('body_capslock')) {
-    bodyElement.classList.remove('body_capslock');
-  } else {
-    bodyElement.classList.add('body_capslock');
-  }
-}
-
 keysArray.forEach((key, index) => {
   if (index < 14) {
     firstRow.insertAdjacentElement('beforeend', new Key(key).render());
@@ -469,47 +492,54 @@ keysArray.forEach((key, index) => {
 });
 
 const keysElementsArray = Array.from(document.querySelectorAll('.key'));
-document.addEventListener('keydown', (event) => {
-  if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
-    currentControl = true;
-  }
-  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-    shiftDown();
-  }
-  if (event.code === 'AltLeft' || event.code === 'AltRight') {
-    altDown();
-  }
 
+document.addEventListener('keydown', (event) => {
   keysElementsArray.forEach((key) => {
     if (event.code === key.dataset.code) {
-      screenElement.focus();
-      key.classList.add('active');
+      const currentKeyCode = key.dataset.code.toLowerCase();
+      const bodyClass = `body_${currentKeyCode}`;
+      switch (currentKeyCode) {
+        case 'shiftleft':
+        case 'shiftright':
+        case 'controlleft':
+        case 'controlright':
+        case 'altleft':
+        case 'altright':
+        case 'metaleft':
+          handleButtonDown(key, bodyClass);
+          break;
+        case 'capslock':
+          key.classList.toggle('active');
+          bodyElement.classList.toggle(bodyClass);
+          break;
+        default:
+          key.classList.add('active');
+          key.dispatchEvent(new MouseEvent('click'));
+      }
     }
   });
 });
 
 document.addEventListener('keyup', (event) => {
-  if (event.code === 'ControlLeft' || event.code === 'ControlRight') {
-    currentControl = false;
-  }
-  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
-    if (currentAlt) {
-      changeLanguage();
-    }
-    shiftUp();
-  }
-  if (event.code === 'AltLeft' || event.code === 'AltRight') {
-    if (currentShift) {
-      changeLanguage();
-    }
-    altUp();
-  }
-  if (event.code === 'CapsLock') {
-    changeCapsLock();
-  }
   keysElementsArray.forEach((key) => {
     if (event.code === key.dataset.code) {
-      key.classList.remove('active');
+      const currentKeyCode = key.dataset.code.toLowerCase();
+      const bodyClass = `body_${currentKeyCode}`;
+      switch (currentKeyCode) {
+        case 'shiftleft':
+        case 'shiftright':
+        case 'controlleft':
+        case 'controlright':
+        case 'altleft':
+        case 'altright':
+        case 'metaleft':
+          handleButtonUp(key, bodyClass);
+          break;
+        case 'capslock':
+          break;
+        default:
+          key.classList.remove('active');
+      }
     }
   });
 });
