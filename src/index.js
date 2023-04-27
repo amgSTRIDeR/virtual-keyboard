@@ -54,17 +54,17 @@ function changeLanguage() {
 
 function isNeedToChangeLanguage(element) {
   if (
-    element.dataset.code === 'AltLeft'
-    && bodyElement.classList.contains('body_shiftleft')
-    && !bodyElement.classList.contains('body_altleft')
+    element.dataset.code === 'AltLeft' &&
+    bodyElement.classList.contains('body_shiftleft') &&
+    !bodyElement.classList.contains('body_altleft')
   ) {
     return true;
   }
 
   if (
-    element.dataset.code === 'ShiftLeft'
-    && bodyElement.classList.contains('body_altleft')
-    && !bodyElement.classList.contains('body_shiftleft')
+    element.dataset.code === 'ShiftLeft' &&
+    bodyElement.classList.contains('body_altleft') &&
+    !bodyElement.classList.contains('body_shiftleft')
   ) {
     return true;
   }
@@ -103,10 +103,10 @@ function handleButtonUp(element, bodyClass) {
 function typeSymbol() {
   let symbol = '';
   if (
-    (bodyElement.classList.contains('body_shiftleft')
-      && bodyElement.classList.contains('body_capslock'))
-    || (!bodyElement.classList.contains('body_shiftleft')
-      && !bodyElement.classList.contains('body_capslock'))
+    (bodyElement.classList.contains('body_shiftleft') &&
+      bodyElement.classList.contains('body_capslock')) ||
+    (!bodyElement.classList.contains('body_shiftleft') &&
+      !bodyElement.classList.contains('body_capslock'))
   ) {
     if (bodyElement.classList.contains('body_ru')) {
       symbol = this.ruSymbol;
@@ -127,25 +127,28 @@ function typeSymbol() {
 
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = screenElement.value.substring(0, startPos)
-    + symbol
-    + screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.value =
+    screenElement.value.substring(0, startPos) +
+    symbol +
+    screenElement.value.substring(endPos, screenElement.value.length);
   screenElement.setSelectionRange(startPos + 1, startPos + 1);
 }
 
 function deletePrevious() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = screenElement.value.substring(0, startPos - 1)
-    + screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.value =
+    screenElement.value.substring(0, startPos - 1) +
+    screenElement.value.substring(endPos, screenElement.value.length);
   screenElement.setSelectionRange(startPos - 1, startPos - 1);
 }
 
 function deleteNext() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = screenElement.value.substring(0, startPos)
-    + screenElement.value.substring(endPos + 1, screenElement.value.length);
+  screenElement.value =
+    screenElement.value.substring(0, startPos) +
+    screenElement.value.substring(endPos + 1, screenElement.value.length);
   screenElement.setSelectionRange(startPos, startPos);
 }
 
@@ -173,10 +176,17 @@ function moveCursorToEnd() {
 function toNewLine() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = `${screenElement.value.substring(0, startPos)
-  }\n${
-    screenElement.value.substring(endPos, screenElement.value.length)}`;
+  screenElement.value = `${screenElement.value.substring(
+    0,
+    startPos,
+  )}\n${screenElement.value.substring(endPos, screenElement.value.length)}`;
   screenElement.setSelectionRange(startPos + 1, startPos + 1);
+}
+
+function scroolScreen() {
+  if (screenElement.selectionStart === screenElement.selectionEnd) {
+    screenElement.scrollTop = screenElement.scrollHeight;
+  }
 }
 
 const keysArray = [
@@ -646,6 +656,7 @@ document.addEventListener('keydown', (event) => {
           key.classList.add('active');
           key.dispatchEvent(new MouseEvent('mousedown'));
       }
+      scroolScreen();
     }
   });
 });

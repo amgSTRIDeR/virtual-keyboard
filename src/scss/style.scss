@@ -11,6 +11,8 @@
 
   color: white;
 
+  scroll-behavior: smooth;
+
   @media (min-width: 1000px) {
     padding: 20px 50px;
   }
@@ -68,6 +70,7 @@
   color: #000000;
 
   caret-color: black;
+  scroll-behavior: smooth;
 }
 
 .keyboard {
