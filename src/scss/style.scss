@@ -58,19 +58,25 @@
 
 .screen {
   display: flex;
+  box-sizing: border-box;
   flex-wrap: wrap;
-  padding: 5px;
+  padding: 10px;
   width: 100%;
   max-width: 883px;
-  height: 100px;
+  height: 200px;
   margin: 20px auto;
 
-  font-size: 2vw;
+  font-size: calc(1.143vw + 8.57px);
+  font-family: inherit;
 
   color: #000000;
 
   caret-color: black;
   scroll-behavior: smooth;
+
+  @media (min-width: 1000px) {
+    font-size: 20px;
+  }
 }
 
 .keyboard {
