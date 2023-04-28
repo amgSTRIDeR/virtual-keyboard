@@ -93,6 +93,7 @@ $key-text-color-active-3-light: #2364AA;
     & .key {
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
+      border-color: darken($key-color-3-light, 16%) darken($key-color-3-light, 18%) darken($key-color-3-light, 20%) darken($key-color-3-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-3-light;
