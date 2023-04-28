@@ -32,6 +32,7 @@ class Key {
 
 const bodyElement = document.querySelector('.body');
 const screenElement = document.querySelector('.screen');
+const specialRow = document.querySelector('.special-row');
 const firstRow = document.querySelector('.first-row');
 const secondRow = document.querySelector('.second-row');
 const thirdRow = document.querySelector('.third-row');
@@ -54,8 +55,8 @@ function changeLanguage() {
 
 function isNeedToChangeLanguage() {
   if (
-    bodyElement.classList.contains('body_shiftleft')
-     && bodyElement.classList.contains('body_altleft')
+    bodyElement.classList.contains('body_shiftleft') &&
+    bodyElement.classList.contains('body_altleft')
   ) {
     return true;
   }
@@ -155,7 +156,6 @@ function moveCursorRight() {
 
 function moveCursorToStart() {
   screenElement.setSelectionRange(0, 0);
-  // screenElement.scrollTop = 0;
 }
 
 function moveCursorToEnd() {
@@ -617,6 +617,30 @@ const keysArray = [
     ruSymbol: '→',
     callback: moveCursorRight,
   },
+  {
+    code: 'LanguageSwitch',
+    enSymbol: '',
+    ruSymbol: '',
+    callback: () => {
+      bodyElement.classList.toggle('body_ru');
+    },
+  },
+  {
+    code: 'ThemeSwitch',
+    enSymbol: '',
+    ruSymbol: '',
+    callback: () => {
+      bodyElement.classList.toggle('body_light');
+    },
+  },
+  {
+    code: 'VolumeSwitch',
+    enSymbol: '',
+    ruSymbol: '',
+    callback: () => {
+      bodyElement.classList.toggle('body_sound-off');
+    },
+  },
 ];
 
 keysArray.forEach((key, index) => {
@@ -628,8 +652,10 @@ keysArray.forEach((key, index) => {
     thirdRow.insertAdjacentElement('beforeend', new Key(key).render());
   } else if (index < 55) {
     fourthRow.insertAdjacentElement('beforeend', new Key(key).render());
-  } else {
+  } else if (index < 64) {
     fifthRow.insertAdjacentElement('beforeend', new Key(key).render());
+  } else {
+    specialRow.insertAdjacentElement('beforeend', new Key(key).render());
   }
 });
 
@@ -659,7 +685,6 @@ document.addEventListener('keydown', (event) => {
           key.classList.add('active');
           key.dispatchEvent(new MouseEvent('mousedown'));
       }
-      // scroolScreen();
     }
   });
 });
