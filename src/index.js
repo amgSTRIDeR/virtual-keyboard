@@ -8,6 +8,7 @@ const secondRow = document.querySelector('.second-row');
 const thirdRow = document.querySelector('.third-row');
 const fourthRow = document.querySelector('.fourth-row');
 const fifthRow = document.querySelector('.fifth-row');
+let previousScrollPosition = window.pageYOffset;
 
 class Key {
   constructor(key) {
@@ -822,7 +823,13 @@ document.addEventListener('keyup', (event) => {
 });
 
 screenElement.addEventListener('blur', () => {
+  previousScrollPosition = window.pageYOffset;
   screenElement.focus();
+});
+
+screenElement.addEventListener('focus', (event) => {
+  event.preventDefault();
+  window.scrollTo(0, previousScrollPosition);
 });
 
 window.onload = () => {
