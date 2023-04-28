@@ -39,24 +39,14 @@ const thirdRow = document.querySelector('.third-row');
 const fourthRow = document.querySelector('.fourth-row');
 const fifthRow = document.querySelector('.fifth-row');
 
-let currentLanguage = localStorage.getItem('language') || 'en';
-
 function changeLanguage() {
-  if (currentLanguage === 'en') {
-    currentLanguage = 'ru';
-    bodyElement.classList.add('body_ru');
-    localStorage.setItem('language', 'ru');
-  } else {
-    currentLanguage = 'en';
-    bodyElement.classList.remove('body_ru');
-    localStorage.setItem('language', 'en');
-  }
+  bodyElement.classList.toggle('body_ru');
 }
 
 function isNeedToChangeLanguage() {
   if (
-    bodyElement.classList.contains('body_shiftleft')
-    && bodyElement.classList.contains('body_altleft')
+    bodyElement.classList.contains('body_shiftleft') &&
+    bodyElement.classList.contains('body_altleft')
   ) {
     return true;
   }
@@ -96,8 +86,8 @@ function typeSymbol() {
   let symbol = '';
 
   if (
-    bodyElement.classList.contains('body_shiftleft')
-    || bodyElement.classList.contains('body_shiftright')
+    bodyElement.classList.contains('body_shiftleft') ||
+    bodyElement.classList.contains('body_shiftright')
   ) {
     if (bodyElement.classList.contains('body_ru')) {
       symbol = this.ruShiftSymbol;
@@ -111,41 +101,44 @@ function typeSymbol() {
   }
 
   if (
-    (bodyElement.classList.contains('body_shiftleft')
-      && bodyElement.classList.contains('body_capslock'))
-    || (bodyElement.classList.contains('body_shiftright')
-      && bodyElement.classList.contains('body_capslock'))
+    (bodyElement.classList.contains('body_shiftleft') &&
+      bodyElement.classList.contains('body_capslock')) ||
+    (bodyElement.classList.contains('body_shiftright') &&
+      bodyElement.classList.contains('body_capslock'))
   ) {
     symbol = symbol.toLowerCase();
   } else if (
-    bodyElement.classList.contains('body_shiftleft')
-    || bodyElement.classList.contains('body_shiftright')
-    || bodyElement.classList.contains('body_capslock')
+    bodyElement.classList.contains('body_shiftleft') ||
+    bodyElement.classList.contains('body_shiftright') ||
+    bodyElement.classList.contains('body_capslock')
   ) {
     symbol = symbol.toUpperCase();
   }
 
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = screenElement.value.substring(0, startPos)
-    + symbol
-    + screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.value =
+    screenElement.value.substring(0, startPos) +
+    symbol +
+    screenElement.value.substring(endPos, screenElement.value.length);
   screenElement.setSelectionRange(startPos + 1, startPos + 1);
 }
 
 function deletePrevious() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = screenElement.value.substring(0, startPos - 1)
-    + screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.value =
+    screenElement.value.substring(0, startPos - 1) +
+    screenElement.value.substring(endPos, screenElement.value.length);
   screenElement.setSelectionRange(startPos - 1, startPos - 1);
 }
 
 function deleteNext() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value = screenElement.value.substring(0, startPos)
-    + screenElement.value.substring(endPos + 1, screenElement.value.length);
+  screenElement.value =
+    screenElement.value.substring(0, startPos) +
+    screenElement.value.substring(endPos + 1, screenElement.value.length);
   screenElement.setSelectionRange(startPos, startPos);
 }
 
@@ -825,4 +818,36 @@ screenElement.addEventListener('blur', () => {
 
 window.onload = () => {
   screenElement.focus();
+
+  if (localStorage.getItem('language-ru')) {
+    bodyElement.classList.add('body_ru');
+  }
+
+  if (localStorage.getItem('theme-light')) {
+    bodyElement.classList.add('body_light');
+  }
+
+  if (localStorage.getItem('sound-off')) {
+    bodyElement.classList.add('body_sound-off');
+  }
+};
+
+window.onbeforeunload = () => {
+  if (bodyElement.classList.contains('body_ru')) {
+    localStorage.setItem('language-ru', 'true');
+  } else {
+    localStorage.removeItem('language-ru');
+  }
+
+  if (bodyElement.classList.contains('body_light')) {
+    localStorage.setItem('theme-light', 'true');
+  } else {
+    localStorage.removeItem('theme-light');
+  }
+
+  if (bodyElement.classList.contains('body_sound-off')) {
+    localStorage.setItem('sound-off', 'true');
+  } else {
+    localStorage.removeItem('sound-off');
+  }
 };
