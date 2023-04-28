@@ -68,15 +68,17 @@ $key-highlight-color-3-dark: #8F6B75;
 
 .body_light {
   background-color: $background-light;
-& .screen {
-  background-color: darken($background-light, 5%);
-  color: darken($background-light, 80%);
-  caret-color: darken($background-light, 100%);
 
-  &::placeholder {
-    color: darken($background-light, 70%);
+  & .screen {
+    background-color: darken($background-light, 5%);
+    color: darken($background-light, 80%);
+    caret-color: darken($background-light, 100%);
+
+    &::placeholder {
+      color: darken($background-light, 70%);
+    }
   }
-}
+
   & .special-row {
     & .key {
       background-color: $key-color-3-light;
@@ -85,12 +87,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-3-light;
       }
-      
+
       &.active,
       &:active {
         color: $key-text-color-active-3-light;
-        background-color: $key-highlight-color-3-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-3-light, 10%);
+        outline: solid $key-text-color-active-3-light 2px;
       }
     }
   }
@@ -121,8 +123,8 @@ $key-highlight-color-3-dark: #8F6B75;
       &.active,
       &:active {
         color: $key-text-color-active-1-light;
-        background-color: $key-highlight-color-1-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
       }
 
     }
@@ -135,12 +137,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-2-light;
         color: $key-text-color-active-2-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
       }
 
     }
@@ -168,12 +170,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-1-light;
         color: $key-text-color-active-1-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
       }
 
     }
@@ -187,12 +189,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-2-light;
         color: $key-text-color-active-2-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
       }
 
     }
@@ -218,12 +220,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-1-light;
         color: $key-text-color-active-1-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
       }
 
     }
@@ -237,12 +239,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-2-light;
         color: $key-text-color-active-2-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
       }
 
     }
@@ -267,12 +269,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-1-light;
         color: $key-text-color-active-1-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
       }
 
     }
@@ -286,12 +288,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-2-light;
         color: $key-text-color-active-2-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
       }
     }
 
@@ -303,12 +305,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-3-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-3-light;
         color: $key-text-color-active-3-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-3-light, 10%);
+        outline: solid $key-text-color-active-3-light 2px;
       }
     }
   }
@@ -322,12 +324,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-1-light;
         color: $key-text-color-active-1-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
       }
 
     }
@@ -343,12 +345,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-2-light;
         color: $key-text-color-active-2-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
       }
     }
 
@@ -363,12 +365,12 @@ $key-highlight-color-3-dark: #8F6B75;
       &:hover {
         background-color: $key-highlight-color-3-light;
       }
-      
+
       &.active,
       &:active {
-        background-color: $key-highlight-color-3-light;
         color: $key-text-color-active-3-light;
         box-shadow: 0 0 1em lighten($key-highlight-color-3-light, 10%);
+        outline: solid $key-text-color-active-3-light 2px;
       }
     }
   }
@@ -518,6 +520,7 @@ $key-highlight-color-3-dark: #8F6B75;
   font-family: inherit;
 
   border: none;
+  border-radius: 5px;
   background-color: lighten($background-dark, 5%);
   color: lighten($background-dark, 80%);
   caret-color: lighten($background-dark, 100%);
@@ -589,12 +592,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-3-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-3-dark;
       color: $key-text-color-active-3-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-3-dark, 10%);
+      outline: solid $key-text-color-active-3-dark 2px;
     }
   }
 }
@@ -645,12 +648,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-1-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-1-dark;
       color: $key-text-color-active-1-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
     }
 
   }
@@ -663,12 +666,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-2-dark;
     }
-    
+
     &.active,
     &:active {
-        background-color: $key-highlight-color-2-dark;
       color: $key-text-color-active-2-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
     }
 
   }
@@ -696,12 +699,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-1-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-1-dark;
       color: $key-text-color-active-1-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
     }
 
   }
@@ -715,12 +718,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-2-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-2-dark;
       color: $key-text-color-active-2-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
     }
 
   }
@@ -746,12 +749,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-1-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-1-dark;
       color: $key-text-color-active-1-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
     }
 
   }
@@ -765,12 +768,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-2-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-2-dark;
       color: $key-text-color-active-2-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
     }
 
   }
@@ -795,12 +798,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-1-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-1-dark;
       color: $key-text-color-active-1-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
     }
 
   }
@@ -814,12 +817,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-2-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-2-dark;
       color: $key-text-color-active-2-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
     }
   }
 
@@ -831,12 +834,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-3-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-3-dark;
       color: $key-text-color-active-3-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-3-dark, 10%);
+      outline: solid $key-text-color-active-3-dark 2px;
     }
   }
 }
@@ -850,12 +853,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-1-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-1-dark;
       color: $key-text-color-active-1-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
     }
 
   }
@@ -871,12 +874,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-2-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-2-dark;
       color: $key-text-color-active-2-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
     }
   }
 
@@ -891,12 +894,12 @@ $key-highlight-color-3-dark: #8F6B75;
     &:hover {
       background-color: $key-highlight-color-3-dark;
     }
-    
+
     &.active,
     &:active {
-      background-color: $key-highlight-color-3-dark;
       color: $key-text-color-active-3-dark;
       box-shadow: 0 0 1em lighten($key-highlight-color-3-dark, 10%);
+      outline: solid $key-text-color-active-3-dark 2px;
     }
   }
 }
@@ -936,7 +939,6 @@ $key-highlight-color-3-dark: #8F6B75;
   &:active {
     transform: translateY(0.4vw) scale(0.95);
     border-width: 0.1vw 0.2vw 0.2vw 0.2vw;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 
     transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
 
