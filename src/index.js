@@ -35,11 +35,12 @@ class Key {
 
         const keyPressAudio = document.createElement('audio');
         keyPressAudio.src = './assets/keypress.mp3';
+        keyPressAudio.volume = 0.3;
 
         if (bodyElement.classList.contains('body_sound-off')) {
           keyPressAudio.volume = 0;
         } else {
-          keyPressAudio.volume = 1;
+          keyPressAudio.volume = 0.3;
         }
 
         keyPressAudio.play();

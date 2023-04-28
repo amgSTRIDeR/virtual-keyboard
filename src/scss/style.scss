@@ -78,6 +78,15 @@ $key-highlight-color-3-light: #D9B7B4;
     &::placeholder {
       color: darken($background-light, 70%);
     }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: darken($background-light, 30%);
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: lighten($background-light, 5%);
+    }
+  
   }
 
   & .special-row {
@@ -525,6 +534,25 @@ $key-highlight-color-3-light: #D9B7B4;
   background-color: lighten($background-dark, 5%);
   color: lighten($background-dark, 80%);
   caret-color: lighten($background-dark, 100%);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: lighten($background-dark, 30%);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: darken($background-dark, 5%);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
 
   &::placeholder {
     color: lighten($background-dark, 70%);
