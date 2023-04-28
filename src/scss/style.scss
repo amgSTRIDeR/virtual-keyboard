@@ -49,6 +49,21 @@ $key-highlight-color-3-dark: #8F6B75;
   .language_ru {
     display: none;
   }
+
+  & .additional-symbol {
+    display: none;
+  }
+}
+
+.body_shiftleft,
+.body_shiftright {
+  & .main-symbol {
+    display: none;
+  }
+
+  & .additional-symbol {
+    display: inline;
+  }
 }
 
 .body_light {
@@ -59,20 +74,20 @@ $key-highlight-color-3-dark: #8F6B75;
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
       border-color: brightness($key-color-3-light, 10%) brightness($key-color-3-light, 80%) brightness($key-color-3-light, 50%) brightness($key-color-3-light, 80%);
-  
+
       &:hover {
         background-color: $key-highlight-color-3-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-3-light;
       }
     }
   }
-  
+
   .first-row {
-  
+
     & .key:nth-child(1),
     & .key:nth-child(2),
     & .key:nth-child(3),
@@ -89,35 +104,36 @@ $key-highlight-color-3-dark: #8F6B75;
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
       border-color: brightness($key-color-1-light, 10%) brightness($key-color-1-light, 80%) brightness($key-color-1-light, 50%) brightness($key-color-1-light, 80%);
-  
+
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-1-light;
       }
-  
+
     }
-  
+
     & .key:nth-child(14) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-2-light;
       }
-  
+
     }
   }
-  
+
   .second-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -133,37 +149,37 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(14) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-1-light;
       }
-  
+
     }
-  
+
     & .key:nth-child(1),
     & .key:nth-child(15) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-2-light;
       }
-  
+
     }
   }
-  
+
   .third-row {
-  
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -177,51 +193,37 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(12) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-1-light;
       }
-  
+
     }
-  
-    & .key:nth-child(1) {
+
+    & .key:nth-child(1),
+    & .key:nth-child(13) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-2-light;
       }
-  
-    }
-  
-    & .key:nth-child(13) {
-      background-color: $key-color-3-light;
-      color: $key-text-color-3-light;
-  
-      &:hover {
-        background-color: $key-highlight-color-3-light;
-      }
-  
-      &.active,
-      &:active {
-        background-color: $key-text-color-active-3-light;
-      }
-  
+
     }
   }
-  
+
   .fourth-row {
-  
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -234,92 +236,92 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(11) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-1-light;
       }
-  
+
     }
-  
+
     & .key:nth-child(1),
     & .key:nth-child(13) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-2-light;
       }
     }
-  
+
     & .key:nth-child(12) {
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-3-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-3-light;
       }
     }
   }
-  
+
   .fifth-row {
     & .key:nth-child(4) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-1-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-1-light;
       }
-  
+
     }
-  
+
     & .key:nth-child(1),
     & .key:nth-child(3),
     & .key:nth-child(5),
     & .key:nth-child(6) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-2-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-2-light;
       }
     }
-  
+
     & .key:nth-child(2),
     & .key:nth-child(7),
     & .key:nth-child(8),
     & .key:nth-child(9) {
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
-  
+
       &:hover {
         background-color: $key-highlight-color-3-light;
       }
-  
+
       &.active,
       &:active {
         background-color: $key-text-color-active-3-light;
@@ -341,19 +343,111 @@ $key-highlight-color-3-dark: #8F6B75;
 .body_capslock,
 .body_shiftleft,
 .body_shiftright {
-  & .key p {
-    text-transform: capitalize;
+  & .first-row {
+    & .key:nth-child(1){
+      text-transform: capitalize;
+    }
+  }
+  & .second-row {
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12),
+    & .key:nth-child(13) {
+      text-transform: capitalize;
+    }
+  }
+  & .third-row {
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12) {
+      text-transform: capitalize;
+    }
+  }
+
+  & .fourth-row {
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10) {
+      text-transform: capitalize;
+    }
   }
 }
 
-.body_shiftleft .key span,
-.body_shiftright .key span {
-  animation: flashing 2s infinite;
-}
+.body_capslock.body_shiftleft,
+.body_capslock.body_shiftright,
+.body_shiftleft.body_shiftright {
+  & .first-row {
+    & .key:nth-child(1){
+      text-transform: lowercase;
+    }
+  }
+  & .second-row {
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12),
+    & .key:nth-child(13) {
+      text-transform: lowercase;
+    }
+  }
 
-.body_capslock.body_shiftleft .key p,
-.body_capslock.body_shiftleftright .key p {
-  text-transform: unset;
+  & .third-row {
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12) {
+      text-transform: lowercase;
+    }
+  }
+  & .fourth-row {
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10) {
+      text-transform: lowercase;
+    }
+  }
 }
 
 .screen {
@@ -582,7 +676,8 @@ $key-highlight-color-3-dark: #8F6B75;
 
   }
 
-  & .key:nth-child(1) {
+  & .key:nth-child(1),
+  & .key:nth-child(13) {
     background-color: $key-color-2-dark;
     color: $key-text-color-2-dark;
 
@@ -593,21 +688,6 @@ $key-highlight-color-3-dark: #8F6B75;
     &.active,
     &:active {
       background-color: $key-text-color-active-2-dark;
-    }
-
-  }
-
-  & .key:nth-child(13) {
-    background-color: $key-color-3-dark;
-    color: $key-text-color-3-dark;
-
-    &:hover {
-      background-color: $key-highlight-color-3-dark;
-    }
-
-    &.active,
-    &:active {
-      background-color: $key-text-color-active-3-dark;
     }
 
   }
@@ -785,15 +865,6 @@ $key-highlight-color-3-dark: #8F6B75;
   &:hover::before {
     opacity: 1;
   }
-}
-
-.additional-symbol {
-  position: absolute;
-  top: 0.1em;
-  left: 0.2em;
-  font-size: 0.9em;
-  color: #b3d9ff;
-  opacity: 0.5;
 }
 
 @keyframes flashing {
