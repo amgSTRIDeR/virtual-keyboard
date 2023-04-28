@@ -1,13 +1,47 @@
 import './scss/style.scss';
 
 const bodyElement = document.querySelector('.body');
-const screenElement = document.querySelector('.screen');
-const specialRow = document.querySelector('.special-row');
-const firstRow = document.querySelector('.first-row');
-const secondRow = document.querySelector('.second-row');
-const thirdRow = document.querySelector('.third-row');
-const fourthRow = document.querySelector('.fourth-row');
-const fifthRow = document.querySelector('.fifth-row');
+
+const screenElement = document.createElement('textarea');
+screenElement.classList.add('screen');
+screenElement.setAttribute('placeholder', '\u{1F4BB} Клавиатура написана для операционной системы Windows\n\u{1F30F} Для переключения языка используется комбинация LeftShift + LeftAlt');
+
+const keyboardElement = document.createElement('div');
+keyboardElement.classList.add('keyboard');
+
+const specialRow = document.createElement('div');
+specialRow.classList.add('special-row');
+specialRow.classList.add('keyboard-row');
+keyboardElement.appendChild(specialRow);
+
+const firstRow = document.createElement('div');
+firstRow.classList.add('first-row');
+firstRow.classList.add('keyboard-row');
+keyboardElement.appendChild(firstRow);
+
+const secondRow = document.createElement('div');
+secondRow.classList.add('second-row');
+secondRow.classList.add('keyboard-row');
+keyboardElement.appendChild(secondRow);
+
+const thirdRow = document.createElement('div');
+thirdRow.classList.add('third-row');
+thirdRow.classList.add('keyboard-row');
+keyboardElement.appendChild(thirdRow);
+
+const fourthRow = document.createElement('div');
+fourthRow.classList.add('fourth-row');
+fourthRow.classList.add('keyboard-row');
+keyboardElement.appendChild(fourthRow);
+
+const fifthRow = document.createElement('div');
+fifthRow.classList.add('fifth-row');
+fifthRow.classList.add('keyboard-row');
+keyboardElement.appendChild(fifthRow);
+
+bodyElement.prepend(keyboardElement);
+bodyElement.prepend(screenElement);
+
 let previousScrollPosition = window.pageYOffset;
 
 class Key {

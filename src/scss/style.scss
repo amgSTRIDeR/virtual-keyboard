@@ -523,11 +523,12 @@ $key-highlight-color-3-light: #D9B7B4;
   padding: 10px;
   width: 100%;
   max-width: 883px;
-  height: 200px;
-  margin: 20px auto;
+  height: 20vw;
+  margin: 2vw auto;
 
-  font-size: calc(1.143vw + 8.57px);
+  font-size: calc(1.250vw + 7.50px);
   font-family: inherit;
+  letter-spacing: 0.05em;
 
   border: none;
   border-radius: 5px;
@@ -562,6 +563,7 @@ $key-highlight-color-3-light: #D9B7B4;
 
   @media (min-width: 1000px) {
     font-size: 20px;
+    height: 200px;
   }
 
   &:focus {
