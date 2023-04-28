@@ -1,5 +1,14 @@
 import './scss/style.scss';
 
+const bodyElement = document.querySelector('.body');
+const screenElement = document.querySelector('.screen');
+const specialRow = document.querySelector('.special-row');
+const firstRow = document.querySelector('.first-row');
+const secondRow = document.querySelector('.second-row');
+const thirdRow = document.querySelector('.third-row');
+const fourthRow = document.querySelector('.fourth-row');
+const fifthRow = document.querySelector('.fifth-row');
+
 class Key {
   constructor(key) {
     this.key = key;
@@ -23,6 +32,17 @@ class Key {
     if (this.key.callback) {
       keyElement.addEventListener('mousedown', () => {
         this.key.callback(keyElement, `body_${this.key.code.toLowerCase()}`);
+
+        const keyPressAudio = document.createElement('audio');
+        keyPressAudio.src = './assets/keypress.mp3';
+
+        if (bodyElement.classList.contains('body_sound-off')) {
+          keyPressAudio.volume = 0;
+        } else {
+          keyPressAudio.volume = 1;
+        }
+
+        keyPressAudio.play();
       });
     }
 
@@ -30,23 +50,14 @@ class Key {
   }
 }
 
-const bodyElement = document.querySelector('.body');
-const screenElement = document.querySelector('.screen');
-const specialRow = document.querySelector('.special-row');
-const firstRow = document.querySelector('.first-row');
-const secondRow = document.querySelector('.second-row');
-const thirdRow = document.querySelector('.third-row');
-const fourthRow = document.querySelector('.fourth-row');
-const fifthRow = document.querySelector('.fifth-row');
-
 function changeLanguage() {
   bodyElement.classList.toggle('body_ru');
 }
 
 function isNeedToChangeLanguage() {
   if (
-    bodyElement.classList.contains('body_shiftleft') &&
-    bodyElement.classList.contains('body_altleft')
+    bodyElement.classList.contains('body_shiftleft')
+    && bodyElement.classList.contains('body_altleft')
   ) {
     return true;
   }
@@ -86,8 +97,8 @@ function typeSymbol() {
   let symbol = '';
 
   if (
-    bodyElement.classList.contains('body_shiftleft') ||
-    bodyElement.classList.contains('body_shiftright')
+    bodyElement.classList.contains('body_shiftleft')
+    || bodyElement.classList.contains('body_shiftright')
   ) {
     if (bodyElement.classList.contains('body_ru')) {
       symbol = this.ruShiftSymbol;
@@ -101,44 +112,41 @@ function typeSymbol() {
   }
 
   if (
-    (bodyElement.classList.contains('body_shiftleft') &&
-      bodyElement.classList.contains('body_capslock')) ||
-    (bodyElement.classList.contains('body_shiftright') &&
-      bodyElement.classList.contains('body_capslock'))
+    (bodyElement.classList.contains('body_shiftleft')
+      && bodyElement.classList.contains('body_capslock'))
+    || (bodyElement.classList.contains('body_shiftright')
+      && bodyElement.classList.contains('body_capslock'))
   ) {
     symbol = symbol.toLowerCase();
   } else if (
-    bodyElement.classList.contains('body_shiftleft') ||
-    bodyElement.classList.contains('body_shiftright') ||
-    bodyElement.classList.contains('body_capslock')
+    bodyElement.classList.contains('body_shiftleft')
+    || bodyElement.classList.contains('body_shiftright')
+    || bodyElement.classList.contains('body_capslock')
   ) {
     symbol = symbol.toUpperCase();
   }
 
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value =
-    screenElement.value.substring(0, startPos) +
-    symbol +
-    screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.value = screenElement.value.substring(0, startPos)
+    + symbol
+    + screenElement.value.substring(endPos, screenElement.value.length);
   screenElement.setSelectionRange(startPos + 1, startPos + 1);
 }
 
 function deletePrevious() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value =
-    screenElement.value.substring(0, startPos - 1) +
-    screenElement.value.substring(endPos, screenElement.value.length);
+  screenElement.value = screenElement.value.substring(0, startPos - 1)
+    + screenElement.value.substring(endPos, screenElement.value.length);
   screenElement.setSelectionRange(startPos - 1, startPos - 1);
 }
 
 function deleteNext() {
   const startPos = screenElement.selectionStart;
   const endPos = screenElement.selectionEnd;
-  screenElement.value =
-    screenElement.value.substring(0, startPos) +
-    screenElement.value.substring(endPos + 1, screenElement.value.length);
+  screenElement.value = screenElement.value.substring(0, startPos)
+    + screenElement.value.substring(endPos + 1, screenElement.value.length);
   screenElement.setSelectionRange(startPos, startPos);
 }
 
