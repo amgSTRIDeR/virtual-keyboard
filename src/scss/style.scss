@@ -73,7 +73,6 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key {
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
-      border-color: brightness($key-color-3-light, 10%) brightness($key-color-3-light, 80%) brightness($key-color-3-light, 50%) brightness($key-color-3-light, 80%);
 
       &:hover {
         background-color: $key-highlight-color-3-light;
@@ -103,7 +102,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(13) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
-      border-color: brightness($key-color-1-light, 10%) brightness($key-color-1-light, 80%) brightness($key-color-1-light, 50%) brightness($key-color-1-light, 80%);
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-1-light;
@@ -119,6 +118,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(14) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-2-light;
@@ -149,6 +149,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(14) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-1-light;
@@ -165,6 +166,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(15) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-2-light;
@@ -193,6 +195,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(12) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-1-light;
@@ -209,6 +212,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(13) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-2-light;
@@ -236,6 +240,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(11) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-1-light;
@@ -252,6 +257,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(13) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-2-light;
@@ -266,6 +272,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(12) {
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
+      border-color: darken($key-color-3-light, 16%) darken($key-color-3-light, 18%) darken($key-color-3-light, 20%) darken($key-color-3-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-3-light;
@@ -282,6 +289,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(4) {
       background-color: $key-color-1-light;
       color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-1-light;
@@ -300,6 +308,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(6) {
       background-color: $key-color-2-light;
       color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-2-light;
@@ -317,6 +326,7 @@ $key-highlight-color-3-dark: #8F6B75;
     & .key:nth-child(9) {
       background-color: $key-color-3-light;
       color: $key-text-color-3-light;
+      border-color: darken($key-color-3-light, 16%) darken($key-color-3-light, 18%) darken($key-color-3-light, 20%) darken($key-color-3-light, 18%);
 
       &:hover {
         background-color: $key-highlight-color-3-light;
@@ -344,11 +354,13 @@ $key-highlight-color-3-dark: #8F6B75;
 .body_shiftleft,
 .body_shiftright {
   & .first-row {
-    & .key:nth-child(1){
+    & .key:nth-child(1) {
       text-transform: capitalize;
     }
   }
+
   & .second-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -364,7 +376,9 @@ $key-highlight-color-3-dark: #8F6B75;
       text-transform: capitalize;
     }
   }
+
   & .third-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -381,6 +395,7 @@ $key-highlight-color-3-dark: #8F6B75;
   }
 
   & .fourth-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -399,11 +414,13 @@ $key-highlight-color-3-dark: #8F6B75;
 .body_capslock.body_shiftright,
 .body_shiftleft.body_shiftright {
   & .first-row {
-    & .key:nth-child(1){
+    & .key:nth-child(1) {
       text-transform: lowercase;
     }
   }
+
   & .second-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -421,6 +438,7 @@ $key-highlight-color-3-dark: #8F6B75;
   }
 
   & .third-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -435,7 +453,9 @@ $key-highlight-color-3-dark: #8F6B75;
       text-transform: lowercase;
     }
   }
+
   & .fourth-row {
+
     & .key:nth-child(2),
     & .key:nth-child(3),
     & .key:nth-child(4),
@@ -520,7 +540,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key {
     background-color: $key-color-3-dark;
     color: $key-text-color-3-dark;
-    border-color: brightness($key-color-3-dark, 10%) brightness($key-color-3-dark, 80%) brightness($key-color-3-dark, 50%) brightness($key-color-3-dark, 80%);
+    border-color: darken($key-color-3-dark, 16%) darken($key-color-3-dark, 18%) darken($key-color-3-dark, 20%) darken($key-color-3-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-3-dark;
@@ -574,7 +594,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(13) {
     background-color: $key-color-1-dark;
     color: $key-text-color-1-dark;
-    border-color: brightness($key-color-1-dark, 10%) brightness($key-color-1-dark, 80%) brightness($key-color-1-dark, 50%) brightness($key-color-1-dark, 80%);
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-1-dark;
@@ -590,6 +610,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(14) {
     background-color: $key-color-2-dark;
     color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-2-dark;
@@ -620,6 +641,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(14) {
     background-color: $key-color-1-dark;
     color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-1-dark;
@@ -636,6 +658,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(15) {
     background-color: $key-color-2-dark;
     color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-2-dark;
@@ -664,6 +687,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(12) {
     background-color: $key-color-1-dark;
     color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-1-dark;
@@ -680,6 +704,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(13) {
     background-color: $key-color-2-dark;
     color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-2-dark;
@@ -707,6 +732,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(11) {
     background-color: $key-color-1-dark;
     color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-1-dark;
@@ -723,6 +749,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(13) {
     background-color: $key-color-2-dark;
     color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-2-dark;
@@ -737,6 +764,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(12) {
     background-color: $key-color-3-dark;
     color: $key-text-color-3-dark;
+    border-color: darken($key-color-3-dark, 16%) darken($key-color-3-dark, 18%) darken($key-color-3-dark, 20%) darken($key-color-3-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-3-dark;
@@ -753,6 +781,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(4) {
     background-color: $key-color-1-dark;
     color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-1-dark;
@@ -771,6 +800,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(6) {
     background-color: $key-color-2-dark;
     color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-2-dark;
@@ -788,6 +818,7 @@ $key-highlight-color-3-dark: #8F6B75;
   & .key:nth-child(9) {
     background-color: $key-color-3-dark;
     color: $key-text-color-3-dark;
+    border-color: darken($key-color-3-dark, 16%) darken($key-color-3-dark, 18%) darken($key-color-3-dark, 20%) darken($key-color-3-dark, 18%);
 
     &:hover {
       background-color: $key-highlight-color-3-dark;
@@ -811,16 +842,14 @@ $key-highlight-color-3-dark: #8F6B75;
 
   font-size: 1.5vw;
 
-  // border-color: #303030 #101010 #050505 #202020;
   border-style: solid;
   border-width: 0.1vw 0.2vw 0.4vw 0.2vw;
   border-radius: 0.5vw;
-  // background-color: #303030;
 
   cursor: pointer;
   user-select: none;
 
-  transition: all 0.2s ease;
+  transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
 
   @media (min-width: 1000px) {
     height: 40px;
@@ -838,7 +867,7 @@ $key-highlight-color-3-dark: #8F6B75;
     border-width: 0.1vw 0.2vw 0.2vw 0.2vw;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 
-    transition: all 0.2s ease;
+    transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
 
     @media (min-width: 1000px) {
       border-width: 1px 2px 2px 2px;
@@ -846,7 +875,7 @@ $key-highlight-color-3-dark: #8F6B75;
   }
 
   &:hover {
-    transition: all 0.2s ease;
+    transition: background-color 0.2s, color 0.2s;
   }
 
   &::before {
@@ -858,12 +887,14 @@ $key-highlight-color-3-dark: #8F6B75;
     bottom: 0;
     background-color: rgba(255, 255, 255, 0.1);
     opacity: 0;
-    transition: all 0.2s ease;
+    transition: background-color 0.2s, opacity 0.2s;
     pointer-events: none;
   }
 
   &:hover::before {
     opacity: 1;
+
+    transition: opacity 0.2s;
   }
 }
 
