@@ -13,6 +13,7 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.27.5",
     "gh-pages": "^5.0.0",
+    "html-webpack-plugin": "^5.5.1",
     "prettier": "^2.8.8",
     "sass": "^1.62.0",
     "sass-loader": "^13.2.2",
