@@ -1,0 +1,1021 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap");
+
+
+$background-dark: #1E1E1E;
+$key-color-1-dark: #040F0F;
+$key-text-color-1-dark: #DCDCDD;
+$key-highlight-color-1-dark: #08090A;
+$key-text-color-active-1-dark: #1985A1;
+$key-color-2-dark: #3C3C3B;
+$key-text-color-2-dark: #FFFFFF;
+$key-highlight-color-2-dark: #39393A;
+$key-text-color-active-2-dark: #3A86FF;
+$key-color-3-dark: #03254E;
+$key-text-color-3-dark: #FECEE9;
+$key-highlight-color-3-dark: #2A324B;
+$key-text-color-active-3-dark: #91C4F2;
+
+$background-light: #ECEFF1;
+$key-color-1-light: #E0E0E2;
+$key-text-color-1-light: #000000;
+$key-highlight-color-1-light: #B4CDED;
+$key-text-color-active-1-light: #304C89;
+$key-color-2-light: #B0B2B8;
+$key-text-color-2-light: #293241;
+$key-highlight-color-2-light: #D9D9D9;
+$key-text-color-active-2-light: #02111B;
+$key-color-3-light: #F4442E;
+$key-text-color-3-light: #F2F3AE;
+$key-highlight-color-3-light: #EA7317;
+$key-text-color-active-3-light: #2364AA;
+
+.body {
+  padding: 0 calc(5.000vw + 0.00px);
+  max-width: 1000px;
+  margin: 0 auto;
+
+  font-family: "Source Code Pro", monospace;
+  text-align: center;
+  font-size: 20px;
+
+  color: white;
+  background-color: $background-dark;
+
+  scroll-behavior: smooth;
+
+  @media (min-width: 1000px) {
+    padding: 20px 50px;
+  }
+
+  .language_ru {
+    display: none;
+  }
+
+  & .additional-symbol {
+    display: none;
+  }
+}
+
+.body_shiftleft,
+.body_shiftright {
+  & .main-symbol {
+    display: none;
+  }
+
+  & .additional-symbol {
+    display: inline;
+  }
+}
+
+.body_light {
+  background-color: $background-light;
+
+  & .screen {
+    background-color: darken($background-light, 5%);
+    color: darken($background-light, 80%);
+    caret-color: darken($background-light, 100%);
+
+    &::placeholder {
+      color: darken($background-light, 70%);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: darken($background-light, 30%);
+    }
+  
+    &::-webkit-scrollbar-track {
+      background-color: lighten($background-light, 5%);
+    }
+  
+  }
+
+  & .special-row {
+    & .key {
+      background-color: $key-color-3-light;
+      color: $key-text-color-3-light;
+      border-color: darken($key-color-3-light, 16%) darken($key-color-3-light, 18%) darken($key-color-3-light, 20%) darken($key-color-3-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-3-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-3-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-3-light, 10%);
+        outline: solid $key-text-color-active-3-light 2px;
+      }
+    }
+  }
+
+  & .first-row {
+
+    & .key:nth-child(1),
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12),
+    & .key:nth-child(13) {
+      background-color: $key-color-1-light;
+      color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-1-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-1-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
+      }
+
+    }
+
+    & .key:nth-child(14) {
+      background-color: $key-color-2-light;
+      color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-2-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-2-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
+      }
+
+    }
+  }
+
+  & .second-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12),
+    & .key:nth-child(13),
+    & .key:nth-child(14) {
+      background-color: $key-color-1-light;
+      color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-1-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-1-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
+      }
+
+    }
+
+    & .key:nth-child(1),
+    & .key:nth-child(15) {
+      background-color: $key-color-2-light;
+      color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-2-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-2-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
+      }
+
+    }
+  }
+
+  & .third-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12) {
+      background-color: $key-color-1-light;
+      color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-1-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-1-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
+      }
+
+    }
+
+    & .key:nth-child(1),
+    & .key:nth-child(13) {
+      background-color: $key-color-2-light;
+      color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-2-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-2-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
+      }
+
+    }
+  }
+
+  & .fourth-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11) {
+      background-color: $key-color-1-light;
+      color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-1-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-1-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
+      }
+
+    }
+
+    & .key:nth-child(1),
+    & .key:nth-child(13) {
+      background-color: $key-color-2-light;
+      color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-2-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-2-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
+      }
+    }
+
+    & .key:nth-child(12) {
+      background-color: $key-color-3-light;
+      color: $key-text-color-3-light;
+      border-color: darken($key-color-3-light, 16%) darken($key-color-3-light, 18%) darken($key-color-3-light, 20%) darken($key-color-3-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-3-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-3-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-3-light, 10%);
+        outline: solid $key-text-color-active-3-light 2px;
+      }
+    }
+  }
+
+  & .fifth-row {
+    & .key:nth-child(4) {
+      background-color: $key-color-1-light;
+      color: $key-text-color-1-light;
+      border-color: darken($key-color-1-light, 16%) darken($key-color-1-light, 18%) darken($key-color-1-light, 20%) darken($key-color-1-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-1-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-1-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-1-light, 10%);
+        outline: solid $key-text-color-active-1-light 2px;
+      }
+
+    }
+
+    & .key:nth-child(1),
+    & .key:nth-child(3),
+    & .key:nth-child(5),
+    & .key:nth-child(6) {
+      background-color: $key-color-2-light;
+      color: $key-text-color-2-light;
+      border-color: darken($key-color-2-light, 16%) darken($key-color-2-light, 18%) darken($key-color-2-light, 20%) darken($key-color-2-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-2-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-2-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-2-light, 10%);
+        outline: solid $key-text-color-active-2-light 2px;
+      }
+    }
+
+    & .key:nth-child(2),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9) {
+      background-color: $key-color-3-light;
+      color: $key-text-color-3-light;
+      border-color: darken($key-color-3-light, 16%) darken($key-color-3-light, 18%) darken($key-color-3-light, 20%) darken($key-color-3-light, 18%);
+
+      &:hover {
+        background-color: $key-highlight-color-3-light;
+      }
+
+      &.active,
+      &:active {
+        color: $key-text-color-active-3-light;
+        box-shadow: 0 0 1em lighten($key-highlight-color-3-light, 10%);
+        outline: solid $key-text-color-active-3-light 2px;
+      }
+    }
+  }
+}
+
+.body_ru {
+  .language_en {
+    display: none;
+  }
+
+  .language_ru {
+    display: block;
+  }
+}
+
+.body_capslock,
+.body_shiftleft,
+.body_shiftright {
+  & .first-row {
+    & .key:nth-child(1) {
+      text-transform: capitalize;
+    }
+  }
+
+  & .second-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12),
+    & .key:nth-child(13) {
+      text-transform: capitalize;
+    }
+  }
+
+  & .third-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12) {
+      text-transform: capitalize;
+    }
+  }
+
+  & .fourth-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10) {
+      text-transform: capitalize;
+    }
+  }
+}
+
+.body_capslock.body_shiftleft,
+.body_capslock.body_shiftright,
+.body_shiftleft.body_shiftright {
+  & .first-row {
+    & .key:nth-child(1) {
+      text-transform: lowercase;
+    }
+  }
+
+  & .second-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12),
+    & .key:nth-child(13) {
+      text-transform: lowercase;
+    }
+  }
+
+  & .third-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10),
+    & .key:nth-child(11),
+    & .key:nth-child(12) {
+      text-transform: lowercase;
+    }
+  }
+
+  & .fourth-row {
+
+    & .key:nth-child(2),
+    & .key:nth-child(3),
+    & .key:nth-child(4),
+    & .key:nth-child(5),
+    & .key:nth-child(6),
+    & .key:nth-child(7),
+    & .key:nth-child(8),
+    & .key:nth-child(9),
+    & .key:nth-child(10) {
+      text-transform: lowercase;
+    }
+  }
+}
+
+.screen {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 100%;
+  max-width: 883px;
+  height: 20vw;
+  margin: 2vw auto;
+
+  font-size: calc(1.250vw + 7.50px);
+  font-family: inherit;
+  letter-spacing: 0.05em;
+
+  border: none;
+  border-radius: 5px;
+  background-color: lighten($background-dark, 5%);
+  color: lighten($background-dark, 80%);
+  caret-color: lighten($background-dark, 100%);
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: lighten($background-dark, 30%);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: darken($background-dark, 5%);
+    border-radius: 5px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  &::placeholder {
+    color: lighten($background-dark, 70%);
+  }
+
+  scroll-behavior: smooth;
+
+  @media (min-width: 1000px) {
+    font-size: 20px;
+    height: 200px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1vw;
+  max-width: 883px;
+  margin: 0 auto;
+
+  @media (min-width: 1000px) {
+    row-gap: 10px;
+  }
+}
+
+.keyboard-row {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  column-gap: 1vw;
+
+
+  @media (min-width: 1000px) {
+    column-gap: 10px;
+  }
+}
+
+.special-row {
+  justify-content: end;
+
+
+  & .key {
+    width: 3.5vw;
+    height: 3vw;
+
+    border-radius: 100%;
+
+    @media (min-width: 1000px) {
+      height: 30px;
+      width: 33px;
+    }
+
+    &::before {
+      border-radius: 100%;
+    }
+  }
+
+  & .key {
+    background-color: $key-color-3-dark;
+    color: $key-text-color-3-dark;
+    border-color: darken($key-color-3-dark, 16%) darken($key-color-3-dark, 18%) darken($key-color-3-dark, 20%) darken($key-color-3-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-3-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-3-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-3-dark, 10%);
+      outline: solid $key-text-color-active-3-dark 2px;
+    }
+  }
+}
+
+.special-row .key:nth-child(1):after {
+  content: 'En';
+}
+
+.body_ru .special-row .key:nth-child(1):after {
+  content: 'Ру';
+}
+
+.special-row .key:nth-child(2):after {
+  content: '\263d';
+}
+
+.body_light .special-row .key:nth-child(2):after {
+  content: '\2600';
+}
+
+.special-row .key:nth-child(3):after {
+  content: '\1F50A';
+}
+
+.body_sound-off .special-row .key:nth-child(3):after {
+  content: '\1F508';
+}
+
+.first-row {
+
+  & .key:nth-child(1),
+  & .key:nth-child(2),
+  & .key:nth-child(3),
+  & .key:nth-child(4),
+  & .key:nth-child(5),
+  & .key:nth-child(6),
+  & .key:nth-child(7),
+  & .key:nth-child(8),
+  & .key:nth-child(9),
+  & .key:nth-child(10),
+  & .key:nth-child(11),
+  & .key:nth-child(12),
+  & .key:nth-child(13) {
+    background-color: $key-color-1-dark;
+    color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-1-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-1-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
+    }
+
+  }
+
+  & .key:nth-child(14) {
+    background-color: $key-color-2-dark;
+    color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-2-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-2-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
+    }
+
+  }
+}
+
+.second-row {
+
+  & .key:nth-child(2),
+  & .key:nth-child(3),
+  & .key:nth-child(4),
+  & .key:nth-child(5),
+  & .key:nth-child(6),
+  & .key:nth-child(7),
+  & .key:nth-child(8),
+  & .key:nth-child(9),
+  & .key:nth-child(10),
+  & .key:nth-child(11),
+  & .key:nth-child(12),
+  & .key:nth-child(13),
+  & .key:nth-child(14) {
+    background-color: $key-color-1-dark;
+    color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-1-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-1-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
+    }
+
+  }
+
+  & .key:nth-child(1),
+  & .key:nth-child(15) {
+    background-color: $key-color-2-dark;
+    color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-2-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-2-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
+    }
+
+  }
+}
+
+.third-row {
+
+  & .key:nth-child(2),
+  & .key:nth-child(3),
+  & .key:nth-child(4),
+  & .key:nth-child(5),
+  & .key:nth-child(6),
+  & .key:nth-child(7),
+  & .key:nth-child(8),
+  & .key:nth-child(9),
+  & .key:nth-child(10),
+  & .key:nth-child(11),
+  & .key:nth-child(12) {
+    background-color: $key-color-1-dark;
+    color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-1-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-1-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
+    }
+
+  }
+
+  & .key:nth-child(1),
+  & .key:nth-child(13) {
+    background-color: $key-color-2-dark;
+    color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-2-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-2-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
+    }
+
+  }
+}
+
+.fourth-row {
+
+  & .key:nth-child(2),
+  & .key:nth-child(3),
+  & .key:nth-child(4),
+  & .key:nth-child(5),
+  & .key:nth-child(6),
+  & .key:nth-child(7),
+  & .key:nth-child(8),
+  & .key:nth-child(9),
+  & .key:nth-child(10),
+  & .key:nth-child(11) {
+    background-color: $key-color-1-dark;
+    color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-1-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-1-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
+    }
+
+  }
+
+  & .key:nth-child(1),
+  & .key:nth-child(13) {
+    background-color: $key-color-2-dark;
+    color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-2-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-2-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
+    }
+  }
+
+  & .key:nth-child(12) {
+    background-color: $key-color-3-dark;
+    color: $key-text-color-3-dark;
+    border-color: darken($key-color-3-dark, 16%) darken($key-color-3-dark, 18%) darken($key-color-3-dark, 20%) darken($key-color-3-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-3-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-3-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-3-dark, 10%);
+      outline: solid $key-text-color-active-3-dark 2px;
+    }
+  }
+}
+
+.fifth-row {
+  & .key:nth-child(4) {
+    background-color: $key-color-1-dark;
+    color: $key-text-color-1-dark;
+    border-color: darken($key-color-1-dark, 16%) darken($key-color-1-dark, 18%) darken($key-color-1-dark, 20%) darken($key-color-1-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-1-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-1-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-1-dark, 10%);
+      outline: solid $key-text-color-active-1-dark 2px;
+    }
+
+  }
+
+  & .key:nth-child(1),
+  & .key:nth-child(3),
+  & .key:nth-child(5),
+  & .key:nth-child(6) {
+    background-color: $key-color-2-dark;
+    color: $key-text-color-2-dark;
+    border-color: darken($key-color-2-dark, 16%) darken($key-color-2-dark, 18%) darken($key-color-2-dark, 20%) darken($key-color-2-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-2-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-2-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-2-dark, 10%);
+      outline: solid $key-text-color-active-2-dark 2px;
+    }
+  }
+
+  & .key:nth-child(2),
+  & .key:nth-child(7),
+  & .key:nth-child(8),
+  & .key:nth-child(9) {
+    background-color: $key-color-3-dark;
+    color: $key-text-color-3-dark;
+    border-color: darken($key-color-3-dark, 16%) darken($key-color-3-dark, 18%) darken($key-color-3-dark, 20%) darken($key-color-3-dark, 18%);
+
+    &:hover {
+      background-color: $key-highlight-color-3-dark;
+    }
+
+    &.active,
+    &:active {
+      color: $key-text-color-active-3-dark;
+      box-shadow: 0 0 1em lighten($key-highlight-color-3-dark, 10%);
+      outline: solid $key-text-color-active-3-dark 2px;
+    }
+  }
+}
+
+.key {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4vw;
+  width: 4.5vw;
+
+  font-size: 1.5vw;
+
+  border-style: solid;
+  border-width: 0.1vw 0.2vw 0.4vw 0.2vw;
+  border-radius: 0.5vw;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+
+  cursor: pointer;
+  user-select: none;
+
+  transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
+
+  @media (min-width: 1000px) {
+    height: 40px;
+    width: 45px;
+
+    font-size: 15px;
+
+    border-width: 1px 2px 4px 2px;
+    border-radius: 5px;
+  }
+
+  &.active,
+  &:active {
+    transform: translateY(0.4vw) scale(0.95);
+    border-width: 0.1vw 0.2vw 0.2vw 0.2vw;
+
+    transition: transform 0.2s, border 0.2s, box-shadow 0.2s;
+
+    @media (min-width: 1000px) {
+      border-width: 1px 2px 2px 2px;
+
+      transform: translateY(4px) scale(0.95);
+    }
+  }
+
+  &:hover {
+    transition: background-color 0.2s, color 0.2s, transform 0.2s, border 0.2s, box-shadow 0.2s;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transition: background-color 0.2s, opacity 0.2s;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 1;
+
+    transition: opacity 0.2s;
+  }
+}
+
+@keyframes flashing {
+  0% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0.8;
+  }
+}
